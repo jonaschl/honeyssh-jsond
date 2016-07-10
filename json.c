@@ -44,5 +44,6 @@ int connection_to_json(struct connection *s, MYSQL_ROW row) {
   json_object_set_new(s->json, "openssh-version", json_string(row[8]));
   json_object_set_new(s->json, "potmode", json_string(row[9]));
   json_object_set_new(s->json, "id", json_string(row[10]));
+  json_object_set_new(s->json, "sensor-id", json_string(row[14]));
   return 0;
 }

@@ -17,7 +17,7 @@ int connection(){
     return 1;
   }
 
-  if (mysql_query(mysql_con, "SELECT `session-id`, `ip`, `start-time`, `end-time`, `banner`, `cipher-in`, `cipher-out`, `protocol-version`, `openssh-version`, `potmode`, `id`, UNIX_TIMESTAMP(`start-time`), UNIX_TIMESTAMP(`end-time`), `action` FROM honeyssh.connection WHERE `action` = 0 OR `action` = -1 ")) {
+  if (mysql_query(mysql_con, "SELECT `session-id`, `ip`, `start-time`, `end-time`, `banner`, `cipher-in`, `cipher-out`, `protocol-version`, `openssh-version`, `potmode`, `id`, UNIX_TIMESTAMP(`start-time`), UNIX_TIMESTAMP(`end-time`), `action`, `sensor-id` FROM honeyssh.connection WHERE `action` = 0 OR `action` = -1 ")) {
     fprintf(stderr, "Query failed: %s\n", mysql_error(mysql_con));
     return 1;
   }
