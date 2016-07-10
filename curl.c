@@ -21,8 +21,8 @@ int PostJSON(char *data, char *url, char *username, char *password)
 
   curl_easy_setopt(curl, CURLOPT_PASSWORD, password);
   curl_easy_setopt(curl, CURLOPT_USERNAME, username);
-  //curl_easy_setopt(curl, CURLOPT_CAPATH, "/home/jonatan/git/honeyssh-transferdaemon/ca");
-  curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
+  curl_easy_setopt(curl, CURLOPT_CAINFO, CURL_CAPATH);
+  curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, TRUE);
   curl_easy_setopt(curl, CURLOPT_USERAGENT, "honeyssh-jsond-1.0");
 
   headers = curl_slist_append(headers, "Expect:");
