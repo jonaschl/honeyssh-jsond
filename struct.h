@@ -7,7 +7,7 @@
 #include <mysql.h>
 #include <my_global.h>
 #include <time.h>
-
+#include <curl/curl.h>
 
 struct login {
   json_t *json;
@@ -34,6 +34,7 @@ int mysql_start(MYSQL **mysql_con);
 int db_set_finished(char *mysql_query_string);
 int db_check_not_transfered(char *table);
 int PostJSON(char *data, char *url, char *username, char *password);
+int curl_finish(CURL **curl, struct curl_slist **headers, char **errbuf);
 int set_start_time(struct time *s);
 int set_end_time(struct time *s);
 int get_sleeptime(struct time *s);

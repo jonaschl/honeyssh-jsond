@@ -53,3 +53,12 @@ int PostJSON(char *data, char *url, char *username, char *password)
   curl_easy_cleanup(curl);
   return 0;
 }
+
+int curl_finish(CURL **curl, struct curl_slist **headers, char **errbuf){
+
+  curl_easy_cleanup(*curl);
+  curl_slist_free_all(*headers);
+  free(*errbuf);
+  return 0;
+
+}
