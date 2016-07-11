@@ -49,7 +49,7 @@ int connection(){
         con.id = strtoull(row[10], &endp, 0);
         con.action = strtol(row[13], &endp, 0);
         connection_to_json(&con, row);
-        int curl_res = PostJSON(json_dumps(con.json, 0), "http://192.168.103.122:31313", "user", "pass");
+        int curl_res = PostJSON(json_dumps(con.json, 0), CURL_SESSION_HOST, CURL_SESSION_USERNAME, CURL_SESSION_PASSWORD);
         printf("\n");
         printf("%s\n", json_dumps(con.json, 0));
         printf("\n");
