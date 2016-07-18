@@ -4,26 +4,21 @@
 #include <my_global.h>
 
 // MYSQL Connection database
-#define MYSQL_HOST  "192.168.103.125"
+#define MYSQL_HOST  "mysql_host"
 #define MYSQL_USER  "honeyssh"
-#define MYSQL_PWD   "bMYC5yZma9LrVHR9"
-#define MYSQL_MAX_CONNECTIONS 140
-#define MYSQL_MAX_CONNECTIONS_WAIT 2
+#define MYSQL_PWD   "mysql_pass"
 // logstash curl
 //session
-#define CURL_SESSION_HOST "http://bree:31313"
-#define CURL_SESSION_USERNAME "user"
-#define CURL_SESSION_PASSWORD "pass"
+#define CURL_SESSION_HOST "logstash_session_host"
+#define CURL_SESSION_USERNAME "logstash_session_user"
+#define CURL_SESSION_PASSWORD "logstash_session_password"
 
 //login
-#define CURL_LOGIN_HOST "http://bree:31314"
-#define CURL_LOGIN_USERNAME "user"
-#define CURL_LOGIN_PASSWORD "pass"
+#define CURL_LOGIN_HOST "logstash_login_host"
+#define CURL_LOGIN_USERNAME "logstash_login_user"
+#define CURL_LOGIN_PASSWORD "logstash_login_password"
 
-#define CURL_CAPATH "/home/jonatan/git/honeyssh-transferdaemon/root-pub.pem"
-
-//login
-// command
+#define CURL_CAPATH "/opt/honeyssh-transfer-daemon/ca/root-pub.pem"
 
 
 #define MAX_SESSION_TIME 86400
