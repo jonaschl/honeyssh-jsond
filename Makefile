@@ -4,9 +4,9 @@ CHMOD := $(shell which chmod)
 SETCAP := $(shell which setcap)
 USER := $(shell whoami)
 
-all: honeysshjsond
+all: daemon
 
-honeysshjsond: main.o json.o mysql.o login.o connection.o curl.o time.o
+daemon: main.o json.o mysql.o login.o connection.o curl.o time.o
 	$(CC) $(CFLAGS) $^ -lssh -lutil -ljansson -lcurl -lmysqlclient -L/usr/lib64/mysql/ -lz -o $@
 
 main.o: main.c config.h struct.h
