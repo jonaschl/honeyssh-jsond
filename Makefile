@@ -7,7 +7,7 @@ USER := $(shell whoami)
 all: daemon
 
 daemon: main.o json.o mysql.o login.o connection.o curl.o time.o
-	$(CC) $(CFLAGS) $^ -lssh -lutil -ljansson -lcurl -lmysqlclient -L/usr/lib64/mysql/ -lz -o $@
+	$(CC) $(CFLAGS) $^ -lutil -ljansson -lcurl -lmysqlclient -L/usr/lib64/mysql/ -lz -o $@
 
 main.o: main.c config.h struct.h
 	$(CC) $(CFLAGS) -I /usr/include/mysql -c main.c
