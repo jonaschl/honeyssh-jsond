@@ -31,12 +31,9 @@ int connection(){
     else
     {
       MYSQL_ROW row;
-      //int num_rows_result = 0;
-      // braucht pro 50 zeile 1 sekunde zums etzen finished
-      //num_rows_result = mysql_num_rows(result);
+      // braucht pro 50 Zeilen 1 sekunde zum setzen action=1
       int i = 0;
       char *finish = malloc(sizeof(char)*(1500*90+500));
-      //printf("%d\n",(num_rows_result*90+500) );
       sprintf(finish, "");
 
 
@@ -65,7 +62,7 @@ int connection(){
       headers = curl_slist_append(headers, "Content-Type: application/json");
       curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 
-      // Curl soll die Länge des String der übermittelt werden soll(Das L hinter der 1 drückt nurd aus das es sich um einen long integer handelt)
+      // Curl soll die Länge des String der übermittelt werden soll selber ermitteln(Das L hinter der 1 drückt nurd aus das es sich um einen long integer handelt)
       curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, -1L);
       curl_easy_setopt(curl, CURLOPT_URL, CURL_SESSION_HOST);
       curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
@@ -91,7 +88,7 @@ int connection(){
           size_t len = strlen(errbuf);
           fprintf(stderr, "\nlibcurl: (%d) ", res);
           if(len)
-          // Der zweite String bedeutet Wenn der errbuf an vorletzer stellen nicht ein /n hat dann füge es hinzu wenn nicht dann tue nichts.
+          // Der zweite String bedeutet: Wenn der errbuf an vorletzer Stelle nicht ein /n hat dann füge es hinzu wenn nicht dann tue nichts.
           fprintf(stderr, "%s%s", errbuf, ((errbuf[len - 1] != '\n') ? "\n" : ""));
           fprintf(stderr, "%s\n\n", curl_easy_strerror(res));
         }
