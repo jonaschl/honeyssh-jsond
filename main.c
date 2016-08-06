@@ -34,28 +34,28 @@ struct time stime;
 
    int check = db_check_not_transfered("connection");
    if ( check == 0){
-     printf("Nichts zu übertragen\n");
+     printf("Nothing to transfer\n");
    }
    else
    {
-     printf("Übertrage %d Datensätze\n",check );
+     printf("Transfer %d data sets\n",check );
      connection();
    }
 
 
    check = db_check_not_transfered("login");
   if ( check == 0){
-    printf("Nichts zu übertragen");
+    printf("Nothing to transfer");
   }
   else
   {
-    printf("Übertrage %d Datensätze\n",check );
+    printf("Transfer %d data sets\n",check );
     login();
   }
 
   set_end_time(&stime);
   int sleeptime = get_sleeptime(&stime);
-  printf("Warte %d Sekunden\n", sleeptime);
+  printf("Wait %d seconds\n", sleeptime);
   sleep(sleeptime);
 
  }
